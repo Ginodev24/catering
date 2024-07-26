@@ -13,8 +13,8 @@
     <!-- Fuentes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    <link 
+        href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" 
         rel="stylesheet">
 
     <!-- Icons -->
@@ -34,16 +34,17 @@
     <!-- Cabecera -->
     <header>
         <nav>
-            <div class="container">
+            <div id="navigation" class="container">
                 <a href=""> <img src="images/logo.png" alt="Logotipo"></a>
 
-                <ul class="main-nav">
+                <ul id="main-nav">
                     <li><a href="index.html">Home</a></li>
                     <li><a href="#acercade">Acerca de</a></li>
                     <li><a href="#servicios">Servicios</a></li>
                     <li><a href="#paquetes">Paquetes personalizados</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
                 </ul>
+
+                <a href="#contacto">Contacto</a>
             </div>
         </nav>
     </header>
@@ -158,22 +159,29 @@
                         <p>Correo electrónico: info@email.com</p>
                     </div>
                     <form action="" method="POST">
-                        <div class="col-input">
-                            <label for="nombre">Nombre:</label>
-                            <input type="text" name="nombre" id="nombre" required>
+                        
+                        <div id="contactForm">
+
+                            <div class="col-input">
+                                <label for="nombre">Nombre:</label>
+                                <input type="text" name="nombre" id="nombre" required>
+                            </div>
+                            <div class="col-input">
+                                <label for="telefono">Teléfono:</label>
+                                <input type="text" name="tel" id="telefono" required>
+                            </div>
+                            <div class="col-input">
+                                <label for="email">Email:</label>
+                                <input type="email" name="correo-e" id="email" required>
+                            </div>
+
                         </div>
-                        <div class="col-input">
-                            <label for="telefono">Teléfono:</label>
-                            <input type="text" name="tel" id="telefono" required>
-                        </div>
-                        <div class="col-input">
-                            <label for="email">Email:</label>
-                            <input type="email" name="correo-e" id="email" required>
-                        </div>
+
                         <div id="col-text">
                             <label for="mensaje">Escribe un comentario</label>
                             <textarea name="mensaje" id="mensaje" cols="30" rows="10" required></textarea>
                         </div>
+
                         <input type="submit" value="Enviar">
                     </form>
                 </div>
@@ -198,6 +206,12 @@
         </div>
     </footer>
 
+    <script>
+            // Evitar que los contenidos se solapen cuando la barra de navegaci�n se encuentra fija.
+        var shiftWindow = function() { scrollBy(0, -100) };
+        window.addEventListener("hashchange", shiftWindow);
+        function load() { if (window.location.hash) shiftWindow(); }
+    </script>
     <!-- <script>
         // Comportamientos para el men� de navegaci�n.
         let mainNav=document.getElementById('main-nav');
